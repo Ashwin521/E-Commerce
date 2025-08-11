@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const productRoutes = require("./routes/products");
+
 require("dotenv").config();
 
 const importRoute = require("./routes/importProducts");
-const productRoutes = require("./routes/products");
+// const productRoutes = require("./routes/products");
 
 const app = express();
 
@@ -20,6 +22,7 @@ mongoose
 
 // Routes
 app.use("/api", importRoute);
+// app.use("/api", productRoutes);
 app.use("/api", productRoutes);
 
 app.get("/", (req, res) => {
