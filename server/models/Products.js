@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-
+const mongoose = require("mongoose")
 const ProductSchema = new mongoose.Schema(
   {
     product_url: String,
@@ -15,6 +14,7 @@ const ProductSchema = new mongoose.Schema(
     overall_rating: Number,
     brand: String,
     product_specifications: String,
+    isFeatured: { type: Boolean, default: false }, // ✅ Added field
   },
   { timestamps: true }
 );
