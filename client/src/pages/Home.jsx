@@ -6,7 +6,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/api/featured`) // ✅ Now fetching featured products
+      .get("http://localhost:5000/api/featured") // ✅ Now fetching featured products
       .then((res) => setProducts(res.data))
       .catch((err) => console.error("Error fetching featured products:", err));
   }, []);
