@@ -15,6 +15,9 @@ const Footer = () => {
           <a href="/contact" className="hover:underline hover:cursor-pointer">
             Contact Us
           </a>
+          <p className="hover:underline hover:cursor-pointer">
+            Made with ❣️ by Ashwin
+          </p>
         </div>
       </div>
     </footer>

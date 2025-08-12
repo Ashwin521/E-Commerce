@@ -8,12 +8,11 @@ const productRoutes = require("./routes/products");
 const importRoute = require("./routes/importProducts");
 const contactRoutes = require("./routes/contactRoutes");
 const authRoutes = require("./routes/authRoutes");
-
+const paypalRoutes = require("./routes/paypalRoutes");
 const app = express();
 
 // Middleware
 app.use("/uploads", express.static("uploads"));
-
 app.use(cors());
 app.use(express.json());
 
@@ -28,16 +27,17 @@ mongoose
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("This is the backend home"); // Always respond to GET /
+  res.send("This is the backend home");
 });
 
 app.use("/api/import", importRoute);
 app.use("/api", productRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/paypal", paypalRoutes); // ✅ Added PayPal route mount
 
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });

@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // ✅ Auto-compute total price whenever cart changes
+
   const totalPrice = useMemo(
     () =>
       cart.reduce(

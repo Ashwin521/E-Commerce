@@ -14,19 +14,19 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-lg">
-          <Link to="/" className="hover:text-purple-300 transition">
+          <Link to="/" className="hover:text-orange-500 transition">
             Home
           </Link>
-          <Link to="/products" className="hover:text-purple-300 transition">
+          <Link to="/products" className="hover:text-orange-500 transition">
             Products
           </Link>
-          <Link to="/about" className="hover:text-purple-300 transition">
+          <Link to="/about" className="hover:text-orange-500 transition">
             About
           </Link>
-          <Link to="/contact" className="hover:text-purple-300 transition">
+          <Link to="/contact" className="hover:text-orange-500 transition">
             Contact
           </Link>
-          <Link to="/cart" className="hover:text-purple-300 transition">
+          <Link to="/cart" className="hover:text-orange-500 transition">
             Cart
           </Link>
         </div>

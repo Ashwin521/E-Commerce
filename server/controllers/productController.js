@@ -28,9 +28,27 @@ const formatProduct = (p) => {
 
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find().limit(10);
+    // Read page and limit from query params (defaults: page=1, limit=10)
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 12;
+
+    // Calculate how many docs to skip
+    const skip = (page - 1) * limit;
+
+    // Get total count for pagination info
+    const totalProducts = await Product.countDocuments();
+    const totalPages = Math.ceil(totalProducts / limit);
+
+    // Fetch products with skip and limit
+    const products = await Product.find().skip(skip).limit(limit);
+
     const cleaned = products.map(formatProduct);
-    res.status(200).json(cleaned);
+
+    res.status(200).json({
+      products: cleaned,
+      totalPages,
+      currentPage: page,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
