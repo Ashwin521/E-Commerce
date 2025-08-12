@@ -7,15 +7,14 @@ require("dotenv").config();
 const productRoutes = require("./routes/products");
 const importRoute = require("./routes/importProducts");
 const contactRoutes = require("./routes/contactRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 const authRoutes = require("./routes/authRoutes");
 const paypalRoutes = require("./routes/paypalRoutes");
 const app = express();
 
 // Middleware
 app.use("/uploads", express.static("uploads"));
-app.use(
-  cors()
-);
+app.use(cors());
 app.use(express.json());
 
 // Connect MongoDB
@@ -36,6 +35,7 @@ app.use("/api/import", importRoute);
 app.use("/api", productRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api/paypal", paypalRoutes); // ✅ Added PayPal route mount
 
 // Start server
