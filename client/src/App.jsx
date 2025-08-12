@@ -26,7 +26,7 @@ export default function App() {
     <CartProvider>
       <PayPalScriptProvider
         options={{
-          "client-id": process.env.VITE_PAYPAL_CLIENT_ID,
+          "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
           currency: "INR",
         }}
       >

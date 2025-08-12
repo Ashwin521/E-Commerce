@@ -111,7 +111,7 @@ export default function ProductsPage() {
 
   const fetchProducts = (pageNum) => {
     setLoading(true);
-    fetch(`http://localhost:5000/api/products?page=${pageNum}`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/products?page=${pageNum}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch products");
         return res.json();
