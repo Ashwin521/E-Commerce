@@ -13,7 +13,12 @@ const app = express();
 
 // Middleware
 app.use("/uploads", express.static("uploads"));
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://your-frontend.onrender.com", // or "*" for all (not recommended for production)
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Connect MongoDB
