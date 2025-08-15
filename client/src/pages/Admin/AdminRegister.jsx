@@ -29,7 +29,7 @@ const AdminRegister = () => {
       );
 
       setSuccess(data.message || "Admin registered successfully!");
-      setFormData({ name: "", email: "", password: "", role: "" }); // Clear form
+      setFormData({ name: "", email: "", password: "", role: "" }); 
     } catch (err) {
       setError(
         err.response?.data?.message ||

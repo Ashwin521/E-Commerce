@@ -27,10 +27,8 @@ const AdminLogin = () => {
         formData
       );
 
-      // Save token to localStorage
       localStorage.setItem("adminToken", data.token);
 
-      // Redirect to admin dashboard
       navigate("/admin-dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Invalid email or password.");
