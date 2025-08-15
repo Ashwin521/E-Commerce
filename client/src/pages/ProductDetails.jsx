@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useCart } from "../context/CartContext";
 
@@ -66,12 +66,14 @@ export default function ProductDetails() {
           </div>
 
           {/* Add to Cart Button */}
-          <button
-            onClick={() => addToCart(product, quantity)}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition"
-          >
-            Add to Cart
-          </button>
+          <Link to="/cart">
+            <button
+              onClick={() => addToCart(product, quantity)}
+              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition"
+            >
+              Add to Cart
+            </button>
+          </Link>
         </div>
       </div>
     </div>

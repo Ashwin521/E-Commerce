@@ -79,13 +79,16 @@
 //       </h2>
 //     </div>
 //   );
-// }
-import React from "react";
+// }import React from "react";
 import { useCart } from "../context/CartContext";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function Cart() {
   const { cart, totalPrice, removeFromCart } = useCart();
+
+  // Change this depending on environment
+  const currency =
+    import.meta.env.VITE_PAYPAL_ENV === "sandbox" ? "USD" : "INR";
 
   return (
     <div className="p-6">
@@ -115,11 +118,12 @@ export default function Cart() {
           ))}
 
           <div className="bg-gray-100 p-4 rounded-lg shadow-md mt-6">
-            <h2 className="text-xl font-bold">Total: ₹{totalPrice}</h2>
+            <h2 className="text-xl font-bold">
+              Total: {currency} {totalPrice}
+            </h2>
           </div>
 
           <div className="mt-6">
-            {/* PayPal Payment Button */}
             <PayPalButtons
               style={{ layout: "vertical" }}
               createOrder={(data, actions) => {
@@ -127,6 +131,7 @@ export default function Cart() {
                   purchase_units: [
                     {
                       amount: {
+                        currency_code: currency,
                         value: totalPrice.toString(),
                       },
                     },

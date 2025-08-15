@@ -4,6 +4,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 // Route imports
+// const cartRoutes = require("./routes/cartRoutes");
+
 const productRoutes = require("./routes/products");
 const importRoute = require("./routes/importProducts");
 const contactRoutes = require("./routes/contactRoutes");
@@ -15,6 +17,8 @@ const app = express();
 // Middleware
 app.use("/uploads", express.static("uploads"));
 app.use(cors());
+// app.use("/api/cart", cartRoutes);
+
 app.use(express.json());
 
 // Connect MongoDB

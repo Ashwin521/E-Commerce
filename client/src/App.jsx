@@ -7,6 +7,9 @@ import ProtectedRoute from "./components/ProtectedRoute"; // adjust the path acc
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import AdminRegister from "../src/pages/Admin/AdminRegister";
+
+import AdminLogin from "../src/pages/Admin/AdminLogin";
 import Contact from "./pages/Contact";
 import ProductsPage from "./pages/ProductsPage";
 import ProductDetails from "./pages/ProductDetails";
@@ -14,7 +17,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
+// import AdminDashboard from "../src/pages/Admin/AdminDashboard";
 // Layout
 import MainLayout from "./Layout/MainLayout";
 
@@ -53,6 +56,9 @@ export default function App() {
             {/* Public routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/admin-register" element={<AdminRegister />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
           </Routes>
         </Router>
       </PayPalScriptProvider>
